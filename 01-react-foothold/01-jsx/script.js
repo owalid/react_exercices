@@ -1,0 +1,1 @@
+ReactDOM.render(<h1>Mon titre</h1>, document.getElementById("root"));
