@@ -6,27 +6,27 @@ npm start
 
 - Maintenant que vous êtes familier avec le code et l'environement de react, nous allons construire notre premiere (vrai) app react. En implementant etape par etape une application de liste de taches (todo app). Nous allons voir les principes suivants: Events, Formulaire, state, props, lifecycle, etc.
 
-- Créer un nouveau dossier `components` dans le dossier src qui contiendra tout vos components.
+- Créer un nouveau dossier components dans le dossier src et créer un fichier TodoForm.js
 
 - Une tache est un objet avec un id, un titre et un etat (done ou non). Nous allons utiliser un tableau pour stocker les taches. Nous allons utiliser un id unique pour chaque tache. Nous allons utiliser la librairie uuid pour generer des id uniques.
 
-Exemple:
+Voici le format json que vous devez suivre:
 ```json
 [
   {
     "id": "1",
     "title": "Learn React",
-    "done": false
+    "completed": false
   },
   {
     "id": "2",
     "title": "Learn Redux",
-    "done": false
+    "completed": false
   },
   {
     "id": "3",
     "title": "Learn HTML",
-    "done": true
+    "completed": true
   }
 ]
 ```
@@ -65,6 +65,17 @@ Vous allez aussi avoir besoin de plusieurs methodes pour mettre à jours les sta
 Vous allez avoir besoin d'une methode:
 
 - Qui permet de mettre à jours le titre de la tache qui sera appelé a chaque fois que l'utilisateur clique sur le bouton de soumission du formulaire. (penser a verfier si votre titre n'est pas vide)
+
+
+# API
+
+- Ajouter un appel à l'api `https://jsonplaceholder.typicode.com/todos?_limit=20` qui permettra d'initalisé la liste de taches. Vous pouvez utiliser la methode fetch pour faire l'appel.
+
+
+# Refacto
+
+- Faites en sorte de ne pas avoir de code dupliqué dans les composants AddTodo et EditTodo.
+
 
 # Bonus
 
