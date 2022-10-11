@@ -1,6 +1,6 @@
 ```
-npx create-react-app myfirstapp
-cd myfirstapp
+npx create-react-app my-first-app
+cd my-first-app
 npm start
 ```
 
@@ -14,18 +14,45 @@ npm start
 - Faite en sorte que le composant `HelloWorld` soit affiché dans le composant `App` en utilisant la balise `<HelloWorld />` dans le composant `App`.
 - Ajouter maintenant un props `name` au composant `HelloWorld` et afficher le dans le h1 du composant.
 
-# Events and Hooks
-
+# Hooks (useState)
 - Faite en sorte que le message "Hello world" soit modifiable. Ajouter donc un input text dans le composant `HelloWorld`. Afficher le nouveau nom dans le h1 en plus du props. (useState)
-- Dans le composant `App`, changer la valeur qui est passer dans le composant `HelloWorld` (le props `name`) pour qu'il soit maintenant dynamique. (useState)
-- Ajouter ensuite dans le compsant App une fonction qui va prendre en paramètre un nouveau nom et qui va changer le state du composant `App`. La nouvelle valeur sera la concatenation du parametre de la fonction (name) avec 'and me' (`name + 'and me'`) (useState)
-- Ajouter un nouveau props au composant `HelloWorld` qui sera la fonction que vous venez de crée.
-- Ajouter ensuite un nouvel input text dans le composant `App` et un boutton. Au clique du boutton il devra appeler la fonction qui sera passer en props avec la valeur de l'input (e.target.value). (pensez au `e.preventDefault()`)
+- Crée un nouveau composant que l'on nommera `DateNowState` et qui va retourner un élément h1 avec la date d'aujourd'hui.
+- Ajouter maintenant un bouton dans le composant `App` qui va permettre de changer la date affichée dans le composant `DateNowState` en utilisant le hook `useState`.
 
+# Hooks (useEffect) sans nettoyage
+- Dans le composant `DateNowEffect` ajouter un useEffect qui va afficher la date d'aujourd'hui dans la console.
 
-# Map
+# Hooks (useEffect)
+- Crée un nouveau composant que l'on nommera `DateNowEffect` qui aura le meme principe que le composant `DateNowState` mais sans le bouton. Il faudra donc qu'il affiche la date d'aujourd'hui et qu'il se mette à jour toutes les secondes. en utilisant le hook `useEffect`. Faite en sorte de clean le hook `useEffect` avec `cleanInterval` pour éviter les fuites de mémoire.
 
-- Crée un nouveau composant `List` qui aura un state qui sera un tableau de string. (useState)
-- Dans ce composant `List` afficher le tableau de string dans une liste ul li. (pensez à utiliser la fonction map et à passer une `key` en props de chaque élément de la liste)
-- Ajouter un input text et un boutton dans le composant List qui permettra d'ajouter une nouvelle string dans le tableau. (penser à utiliser un useState pour l'input text)
-- Importer ensuite le composant dans le composant `App` et afficher le.
+# Hooks (personalisé)
+- Crée un composant `IncrementBouton` qui aura un hook personalisé qui va permettre d'incrémenter un nombre de 1 en 1 lors du click du boutton. Ce composant va retourner un bouton qui va afficher le nombre incrémenté.
+
+- Crée ensuite un nouveau composant `AutoIncrementButton` qui aura un hook personalisé (`useAutoIncrement`) qui mettra à jours toutes les secondes la valeur count. Ce composant va retourner un bouton qui va afficher le nombre incrémenté. Faite en sorte de clean le hook `useEffect` avec `cleanInterval` pour éviter les fuites de mémoire.
+
+# Hooks (useContext & styles)
+- Crée un nouveau contexte `ThemeContext` qui aura un state `theme` qui aura comme valeur par défaut `light`.
+- Ce theme sera consomé pour changer la couleur du texte et de background des composants crée juste avant.
+- Ajouter un bouton dans le composant `App` qui va permettre de changer le theme entre `light` et `dark` en utilisant le contexte `ThemeContext`.
+
+# Appel d'API
+
+- Crée un nouveau composant appeler `PostsLists` qui va afficher une liste de posts. Récuperer à partir de l'API `https://jsonplaceholder.typicode.com/posts?_limit=5`.
+- Ajouter aussi un bouton pour supprimer un post de la liste.
+- Vous devez utiliser les hooks que vous avez vu precedement (`useEffect` et `useState`).
+- Ajouter un state `loading` qui va permettre d'afficher un message de chargement pendant que les données sont en train d'être chargées.
+- Refactorisé le tout pour avoir un hook personalisé que l'on va appelé `useFetch` qui va permettre de faire les appels à l'API et le chargement.
+
+# useCallBack
+- Crée un nouveau composant appelé `City`, qui aura deux state, un state `name` et un state `numberOfHabitants`. Ce composant va retourner un h1 avec le nom de la ville et le nombre d'habitants.
+- Il faudra aussi ajouter un input number qui va permettre de changer le nombre d'habitants de la ville. Ainsi qu'un input type text qui va permettre de changer le nom de la ville.
+- Ajouter un console.log à l'intérieur du composant `City` qui affiche le nombre d'habitants pour voir combien de fois il est appelé.
+- Déplacer le console.log pour faire en sorte qu'il soit appeler uniquement lorsque le nombre d'habitants change.
+- Il faudra utiliser le hook `useCallback` pour éviter que la fonction `console.log` soit appelé à chaque fois que le composant `City` soit rerender.
+
+# Memo
+- Crée un nouveau composant appelé `ButtonMemo` qui auras un console.log à la création du composant. Ce composant va retourner un bouton qui va afficher le nombre de fois qu'il a été cliqué.
+- Ajouter ce composant au composant `IncrementButton`
+- Observer le nombre de fois que le composant `ButtonMemo` est appelé dans la console. Lorsque le boutton du composant `IncrementButton` est cliqué.
+- Ajouter un `React.memo` au composant `ButtonMemo` pour éviter que le composant ne soit appelé à chaque fois que le composant `App` est appelé.
+- Observer le nombre de fois que le composant `ButtonMemo` est appelé dans la console.

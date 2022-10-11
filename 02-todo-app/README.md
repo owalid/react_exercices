@@ -6,8 +6,7 @@ npm start
 
 - Maintenant que vous êtes familier avec le code et l'environement de react, nous allons construire notre premiere (vrai) app react. En implementant etape par etape une application de liste de taches (todo app). Nous allons voir les principes suivants: Events, Formulaire, state, props, lifecycle, etc.
 
-- Créer un nouveau dossier components dans le dossier src et créer un fichier TodoForm.js
-
+- Créer un nouveau dossier `components` dans le dossier src qui contiendra tout vos components.
 
 - Une tache est un objet avec un id, un titre et un etat (done ou non). Nous allons utiliser un tableau pour stocker les taches. Nous allons utiliser un id unique pour chaque tache. Nous allons utiliser la librairie uuid pour generer des id uniques.
 
@@ -67,3 +66,6 @@ Vous allez avoir besoin d'une methode:
 
 - Qui permet de mettre à jours le titre de la tache qui sera appelé a chaque fois que l'utilisateur clique sur le bouton de soumission du formulaire. (penser a verfier si votre titre n'est pas vide)
 
+# Bonus
+
+- Ajouter du style et un theme global.
