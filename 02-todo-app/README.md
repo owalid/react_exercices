@@ -8,7 +8,7 @@ npm start
 
 - Créer un nouveau dossier components dans le dossier src et créer un fichier TodoForm.js
 
-- Une tache est un objet avec un id, un titre et un etat (done ou non). Nous allons utiliser un tableau pour stocker les taches. Nous allons utiliser un id unique pour chaque tache. Nous allons utiliser la librairie uuid pour generer des id uniques.
+- Une tache est un objet avec un id, un titre et un etat (done ou non). Nous allons utiliser un tableau pour stocker les taches. Nous allons utiliser un id unique pour chaque tache. 
 
 Voici le format json que vous devez suivre:
 ```json
